@@ -1,0 +1,113 @@
+.meals-swiper {
+    margin: 25px 0;
+
+    .meals-swiper--head {
+        margin-bottom: 20px;
+
+        h2 {
+            font-size: 28px;
+        }
+
+        a {
+            color: $mainColor3;
+            font-weight: bold;
+            font-size: 15px;
+        }
+    }
+
+    .meals-swiper--slide {
+        .swiper {
+            .swiper-slide {
+                background-color: $mainColor1;
+                position: relative;
+                overflow: hidden;
+                border-radius: 25px;
+
+                a {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 1;
+
+                    &:hover {
+                        background-color: #00000080;
+                    }
+                }
+
+                img {
+                    width: 100%;
+                    height: 150px;
+                }
+
+                .text {
+                    padding: 15px 10px;
+
+                    h3 {
+                        font-size: 18px;
+                        margin-bottom: 15px;
+                        text-wrap: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+
+                    &>div {
+                        margin-top: auto;
+
+                        p {
+                            font-weight: bold;
+
+                            span {
+                                color: $mainColor3;
+                                margin-left: 5px;
+                                font-size: 12px;
+                            }
+
+                            b {
+                                font-size: 16px;
+                            }
+                        }
+
+                        .btn {
+                            position: relative;
+                            z-index: 2;
+                            background-color: $mainColor3;
+                            font-weight: bold;
+                            border-radius: 25px;
+                            font-size: 12px;
+
+                            &:hover {
+                                background-color: $mainColor2;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .swiper-button-prev,
+            .swiper-button-next {
+                &::after {
+                    background-color: $mainColor3;
+                    color: $mainColor1;
+                    font-weight: bold;
+                    font-size: 20px;
+                    width: 35px;
+                    height: 35px;
+                    border-radius: 50%;
+                    line-height: 35px;
+                    text-align: center;
+                    transition: 0.2s linear;
+                }
+
+                &:hover::after {
+                    background-color: $mainColor2 !important;
+                    color: $mainColor3 !important;
+                }
+
+                &.swiper-button-disabled {
+                    display: none !important;
+                }
+            }
+        }
+
+    }
+}

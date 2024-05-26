@@ -1,0 +1,109 @@
+header {
+  background-color: $mainColor1;
+  border-right: 0px solid $mainColor2;
+  .navbar {
+    height: 75px;
+  }
+  .logo img {
+    width: 75px;
+    height: 50px;
+  }
+  .navbar-brand img {
+    width: 75px;
+    height: 50px;
+  }
+
+  .navbar-toggler {
+    color: white;
+    border-color: white;
+
+    span {
+      line-height: 30px;
+    }
+  }
+
+  .navbar-collapse {
+    .navbar-nav {
+        gap: 20px;
+      a {
+        padding: 0 !important;
+        font-weight: bold;
+        color: rgba(214, 218, 222, 0.5);
+
+        &.active,
+        &:hover {
+          color: $textColor;
+        }
+      }
+    }
+
+    .btns {
+      .btn {
+        color: $mainColor3;
+        border: 1px solid $mainColor3;
+        width: 100px;
+        padding: 10px 0;
+        font-size: 12px;
+        border-radius: 35px;
+        font-weight: bold;
+        transition: 0.5s linear;
+
+        &:hover,
+        &.active {
+          background-color: $mainColor3;
+          color: $mainColor1;
+        }
+
+        &::after {
+          content: none;
+        }
+      }
+
+      .dropdown-menu {
+        background-color: $mainColor3;
+        left: 0;
+        border-radius: 20px;
+        overflow: hidden;
+
+        .dropdown-item {
+          font-weight: bold;
+          font-weight: bold;
+          padding: 5px 10px;
+          background-color: transparent;
+          color: $mainColor1;
+          &:hover {
+            background-color: $mainColor2;
+            color: $mainColor3;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    position: relative;
+    border: none;
+
+    .navbar-collapse {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 10;
+      width: 100%;
+      background-color: $mainColor1;
+      padding: 15px;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      border: 1px solid #000;
+      border-top: none;
+
+      .navbar-nav {
+        a {
+          margin: 5px auto;
+        }
+      }
+    }
+  }
+}

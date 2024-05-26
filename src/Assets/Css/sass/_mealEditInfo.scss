@@ -1,0 +1,41 @@
+.modal-content {
+    background-color: #000 !important;
+    border-radius: 25px;
+
+    .modal-header {
+        border: none;
+        color: $textColor;
+
+        .btn-close {
+            border: 2px solid $textColor;
+            border-radius: 50%;
+            opacity: 1;
+            margin: 0;
+        }
+    }
+
+    .modal-body {
+
+        input,
+        textarea {
+            background-color: transparent;
+            border: 1px solid $textColor;
+            color: $textColor;
+        }
+    }
+
+    .modal-footer {
+        border: none;
+
+        button:nth-of-type(1) {
+            color: $mainColor3;
+        }
+
+        button:nth-of-type(2) {
+            color: $textColor;
+            background-color: $mainColor3;
+            width: 100px;
+            border-radius: 50px;
+        }
+    }
+}

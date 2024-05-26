@@ -1,0 +1,29 @@
+/*-------------------------------------------------------------
+                        bootstrap update
+-------------------------------------------------------------*/
+@media (min-width: 992px) {
+    .col-lg-1-5 {
+        flex: 0 0 auto;
+        width: 12.5%;
+        padding: 0 7px;
+    }
+}
+
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 730px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 865px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1000px;
+    }
+}

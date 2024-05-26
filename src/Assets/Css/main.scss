@@ -1,0 +1,1642 @@
+@import "./sass/global-setting";
+@import "./sass/bootstrap-update";
+
+@import "./sass/loading";
+@import "./sass/navbar";
+@import "./sass/sideNav";
+@import "./sass/mealSwiper";
+@import "./sass/mealEditInfo";
+
+/*-------------------------------------------------------------
+                        Menu page
+-------------------------------------------------------------*/
+.menu {
+  height: 100vh;
+  overflow: hidden;
+
+  .menu--content {
+    background-color: $mainColor2;
+    color: #d6dade;
+    overflow-y: auto;
+    height: calc(100vh - 75px);
+
+    .menu--offers {
+      .offers-swiper--head {
+        margin-bottom: 20px;
+
+        h2 {
+          font-size: 28px;
+        }
+
+        label {
+          cursor: pointer;
+          font-weight: bold;
+          border: 2px solid #adb5bd;
+          font-size: 14px;
+          color: #adb5bd;
+          border-radius: 25px;
+          padding: 8px 15px;
+          transition: 0.3s;
+
+          &:hover {
+            border-color: $mainColor3;
+            color: $mainColor3;
+          }
+        }
+
+        input {
+          display: none;
+        }
+      }
+
+      .offers-swiper--slide {
+        .swiper-slide {
+          position: relative;
+          border-radius: 35px;
+          overflow: hidden;
+
+          a {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+
+            &:hover {
+              background-color: #00000080;
+            }
+          }
+
+          button {
+            border: none;
+            background-color: $mainColor2;
+            border-radius: 50%;
+            top: 10px;
+            left: 10px;
+            z-index: 2;
+            padding: 5px;
+
+            img {
+              width: 20px;
+            }
+          }
+
+          .slide-img {
+            width: 100%;
+            height: 250px;
+          }
+
+          @media (max-width: 768px) {
+            .slide-img {
+              height: 200px;
+            }
+          }
+
+          @media (max-width: 576px) {
+            .slide-img {
+              height: 175px;
+            }
+          }
+        }
+
+        .swiper-pagination {
+          .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            background-color: $textColor;
+            opacity: 0.7;
+          }
+
+          .swiper-pagination-bullet-active {
+            background-color: $mainColor3;
+          }
+        }
+      }
+    }
+
+    .menu--categorie {
+      .categorie--head {
+        h2 {
+          font-size: 28px;
+          margin: 0;
+        }
+
+        .btn {
+          font-weight: bold;
+          border: 2px solid #adb5bd;
+          font-size: 14px;
+          color: #adb5bd;
+          border-radius: 25px;
+          padding: 8px 15px;
+          transition: 0.3s;
+
+          &:hover {
+            border-color: $mainColor3;
+            color: $mainColor3;
+          }
+        }
+      }
+
+      .categorie--meal {
+        background-color: $mainColor1;
+        position: relative;
+        overflow: hidden;
+        border-radius: 25px;
+
+        a {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          z-index: 1;
+        }
+
+        img {
+          width: 100%;
+          height: 150px;
+        }
+
+        .text {
+          padding: 20px 15px;
+
+          h3 {
+            font-size: 22px;
+            text-wrap: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          & > div {
+            p {
+              font-weight: bold;
+
+              span {
+                color: $mainColor3;
+                margin-left: 5px;
+                font-size: 14px;
+              }
+
+              b {
+                font-size: 18px;
+              }
+            }
+
+            .btn {
+              position: relative;
+              z-index: 2;
+              background-color: $mainColor3;
+              font-weight: bold;
+              border-radius: 25px;
+              font-size: 14px;
+
+              &:hover {
+                background-color: $mainColor2;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/*-------------------------------------------------------------
+                        Meal page
+-------------------------------------------------------------*/
+.meal-view {
+  background-color: $mainColor2;
+  color: $textColor;
+  min-height: calc(100vh - 75px);
+
+  button {
+    background-color: transparent;
+  }
+
+  .star-ratings-css {
+    display: block;
+    unicode-bidi: bidi-override;
+    color: #c5c5c5;
+    margin-left: 1em;
+    position: relative;
+    text-shadow: 0 -1px 0 #a2a2a2;
+    font-size: 1.5em;
+
+    &::before {
+      content: "★★★★★";
+      opacity: 0.3;
+      overflow: hidden;
+    }
+
+    i {
+      right: 0;
+      position: absolute;
+      overflow: hidden;
+
+      &::after {
+        font-style: normal;
+        color: gold;
+        content: "★★★★★";
+        text-shadow: 0 -1px 0 #ab5414;
+        z-index: 1;
+      }
+    }
+  }
+
+  .text {
+    .edit-btn {
+      border: 2px solid $textColor;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    .heading {
+      h4 {
+        font-size: 28px;
+      }
+    }
+
+    .price-point {
+      color: $mainColor3;
+      font-size: 28px;
+      font-weight: bold;
+
+      div:nth-of-type(2) {
+        font-size: 18px;
+      }
+    }
+
+    .meal-rate {
+      p {
+        color: $mainColor3;
+        border-left: 1px solid $textColor;
+      }
+
+      span {
+        margin-left: 10px;
+        font-size: 28px;
+      }
+
+      b {
+        color: #6c757d;
+        font-size: 17px;
+        font-weight: normal;
+      }
+    }
+
+    .description {
+      h5 {
+        font-weight: bold;
+        font-size: 16px;
+      }
+
+      p {
+        font-size: 15px;
+        line-height: 1.5;
+      }
+    }
+  }
+
+  .image {
+    border-radius: 60px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      aspect-ratio: 3/2;
+    }
+
+    div {
+      background-color: #00000080;
+      display: none !important;
+
+      label {
+        background-color: $mainColor3;
+        color: white;
+        padding: 15px;
+        border-radius: 25px;
+        cursor: pointer;
+      }
+
+      input {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 0;
+        height: 0;
+      }
+    }
+
+    &:hover {
+      div {
+        display: flex !important;
+      }
+    }
+  }
+
+  .controll {
+    .count {
+      border: 1px solid $textColor;
+      // padding: 12px 0;
+      overflow: hidden;
+      border-radius: 25px;
+      justify-content: space-evenly !important;
+
+      p {
+        width: calc(100% / 3);
+        color: $textColor;
+        margin-bottom: 0;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      button {
+        color: $textColor;
+        width: calc(100% / 3);
+        height: 50px;
+        font-size: 20px;
+        font-weight: bold;
+
+        &:enabled {
+          &:hover {
+            background-color: $mainColor3;
+            color: $mainColor1;
+          }
+        }
+
+        &:disabled {
+          cursor: not-allowed;
+        }
+      }
+    }
+
+    .basket {
+      border: 1px solid $mainColor3;
+      border-radius: 25px;
+      color: $mainColor1;
+      background-color: $mainColor3;
+
+      button {
+        width: 100%;
+        height: 50px;
+      }
+    }
+
+    .remove {
+      border: 1px solid #d00000;
+      border-radius: 25px;
+      background-color: #d00000;
+
+      button {
+        width: 100%;
+        height: 50px;
+        color: white;
+      }
+    }
+  }
+
+  @media (max-width: 375px) {
+    .text {
+      .edit-btn {
+        width: 30px;
+        height: 30px;
+
+        img {
+          width: 15px;
+          height: 15px;
+        }
+      }
+
+      .heading {
+        h4 {
+          font-size: 21px;
+        }
+      }
+
+      .price-point {
+        font-size: 21px;
+
+        div:nth-of-type(2) {
+          font-size: 13.5px;
+        }
+      }
+
+      .meal-rate {
+        p {
+          font-size: 12px;
+        }
+
+        span {
+          font-size: 21px;
+        }
+
+        b {
+          font-size: 13px;
+        }
+      }
+
+      .description {
+        h5 {
+          font-size: 13px;
+        }
+
+        p {
+          font-size: 12px;
+          line-height: 1.5;
+        }
+      }
+    }
+
+    .controll {
+      .count,
+      .basket,
+      .remove {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .meal-comments {
+    h3 {
+      font-size: 30px;
+    }
+
+    .comments {
+      .comment {
+        h5 {
+          font-size: 19px;
+        }
+
+        p {
+          font-size: 15px;
+          line-height: 1.5;
+        }
+
+        .control {
+          i {
+            font-size: 14px;
+            color: #6c757d;
+          }
+
+          button {
+            border: 2px solid $textColor;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img {
+              width: 20px;
+              height: 20px;
+            }
+          }
+        }
+      }
+
+      & > p {
+        font-size: 20px;
+      }
+    }
+  }
+
+  @media (max-width: 375px) {
+    .meal-comments {
+      .comments {
+        .comment {
+          h5 {
+            font-size: 17px;
+          }
+
+          span {
+            font-size: 17px;
+          }
+
+          p {
+            font-size: 14px;
+          }
+
+          .control {
+            i {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .add-comment {
+    h3 {
+      font-size: 30px;
+    }
+
+    .star-rating {
+      .rate-btn {
+        background-color: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 0;
+        font-size: 50px;
+
+        &.on {
+          color: gold;
+        }
+
+        &.off {
+          color: $mainColor1;
+        }
+      }
+    }
+
+    .field {
+      textarea {
+        min-width: 100%;
+        max-width: 100%;
+        min-height: 200px;
+        max-height: 200px;
+        background-color: transparent;
+        border-radius: 15px;
+        padding: 15px;
+        color: #6c757d;
+      }
+    }
+
+    .send--comment {
+      input {
+        background-color: transparent;
+        border: 1px solid #6c757d;
+        border-radius: 15px;
+        padding: 10px;
+        color: #6c757d;
+      }
+
+      button {
+        background-color: $mainColor3;
+        border: 1px solid $mainColor3;
+        border-radius: 15px;
+        padding: 10px;
+        font-weight: bold;
+        color: $mainColor1;
+
+        &:disabled {
+          cursor: not-allowed;
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}
+
+.add-meal {
+  background-color: $mainColor2;
+  color: $textColor;
+  min-height: calc(100vh - 75px);
+
+  h3 {
+    color: $textColor;
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  label {
+    color: #adb5bd;
+    font-size: 14px;
+  }
+
+  .text {
+    .info {
+      border: 2px solid #adb5bd;
+      padding: 15px;
+      border-radius: 30px;
+      margin-bottom: 15px;
+
+      input,
+      textarea {
+        background-color: transparent;
+        border-color: #adb5bd;
+        color: #adb5bd;
+        border-radius: 15px;
+        padding: 12px 10px;
+
+        &::placeholder {
+          color: #adb5bd;
+        }
+      }
+
+      textarea {
+        min-height: 150px;
+        max-height: 150px;
+      }
+    }
+
+    .price {
+      border: 2px solid #adb5bd;
+      padding: 15px;
+      border-radius: 30px;
+
+      .input-group {
+        border: 2px solid #adb5bd;
+        border-radius: 15px;
+        padding: 5px;
+      }
+
+      input {
+        color: #adb5bd;
+        border: none;
+        background-color: transparent;
+        width: 90%;
+
+        &:focus {
+          box-shadow: none;
+        }
+
+        &::placeholder {
+          color: #adb5bd;
+        }
+      }
+
+      img {
+        width: 8%;
+      }
+    }
+
+    button {
+      width: 100%;
+      background-color: $mainColor3;
+      padding: 10px 0;
+      border-radius: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      border: 1px solid $mainColor3;
+
+      &.cancel {
+        background-color: transparent;
+        color: $textColor;
+        border-color: $textColor;
+      }
+    }
+  }
+
+  .image {
+    & > div {
+      border-radius: 60px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        aspect-ratio: 3/2;
+      }
+
+      .change-img {
+        background-color: #00000080;
+        // display: none !important;
+
+        label {
+          background-color: $mainColor3;
+          color: white;
+          padding: 15px;
+          border-radius: 25px;
+          cursor: pointer;
+        }
+
+        input {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 0;
+          height: 0;
+        }
+      }
+
+      // &:hover {
+      //     div {
+      //         display: flex !important;
+      //     }
+      // }
+    }
+  }
+}
+
+/*-------------------------------------------------------------
+                        admin page
+-------------------------------------------------------------*/
+.admin-mode {
+  background-image: url("../Images/admin.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: calc(100vh - 75px);
+
+  .admin-login {
+    background-color: $mainColor1;
+    border-top: 2px solid $mainColor2;
+    width: 650px;
+
+    .admin-login-input {
+      width: 300px;
+
+      img {
+        width: 130px;
+        height: 90px;
+      }
+
+      h2 {
+        color: $textColor;
+        margin: 20px 0;
+        font-weight: bold;
+      }
+
+      h3 {
+        display: flex;
+        flex-direction: row;
+        color: #adb5bd;
+        font-size: 16px;
+
+        &::after,
+        &::before {
+          content: "";
+          flex: 1 1;
+          border-bottom: 1px solid;
+          margin: auto;
+        }
+
+        &::before {
+          margin-left: 10px;
+        }
+
+        &::after {
+          margin-right: 10px;
+        }
+      }
+
+      .field {
+        &.error {
+          .input-group {
+            border-color: red;
+          }
+        }
+
+        label {
+          color: #adb5bd;
+          font-weight: bold;
+          margin-bottom: 10px;
+          cursor: pointer;
+        }
+
+        .input-group {
+          border: 1px solid #adb5bd;
+          margin-bottom: 10px;
+          border-radius: 10px;
+          overflow: hidden;
+
+          input {
+            background-color: $mainColor1;
+            padding: 10px;
+            outline: none;
+            border: none;
+            color: #adb5bd;
+
+            &::placeholder {
+              color: #444445;
+            }
+          }
+
+          .pass-btn {
+            button {
+              color: #adb5bd;
+              padding: 10px 10px;
+              background-color: transparent;
+
+              img {
+                width: 20px;
+                height: 20px;
+              }
+            }
+          }
+        }
+      }
+
+      p {
+        color: red;
+        font-size: 12px;
+      }
+
+      & > button {
+        background-color: $mainColor3;
+        padding: 10px;
+        border-radius: 10px;
+        font-weight: bold;
+
+        &:disabled {
+          cursor: not-allowed;
+        }
+
+        &:enabled {
+          &:hover {
+            background-color: $mainColor2;
+            color: $mainColor3;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .admin-mode {
+    .admin-login {
+      width: 100%;
+
+      .admin-login-input {
+        width: 285px;
+      }
+    }
+  }
+}
+
+/*-------------------------------------------------------------
+                        add admin page
+-------------------------------------------------------------*/
+.add-admin {
+  background-image: url("../Images/admin.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: calc(100vh - 75px);
+
+  .admin-singup {
+    background-color: $mainColor1;
+    border-top: 2px solid $mainColor2;
+    width: 650px;
+
+    .admin-singup-input {
+      width: 90%;
+      padding: 15px 0;
+
+      h2 {
+        color: $textColor;
+        margin-bottom: 20px;
+        font-weight: bold;
+      }
+
+      h3 {
+        display: flex;
+        flex-direction: row;
+        color: #adb5bd;
+        font-size: 16px;
+
+        &::after,
+        &::before {
+          content: "";
+          flex: 1 1;
+          border-bottom: 1px solid;
+          margin: auto;
+        }
+
+        &::before {
+          margin-left: 10px;
+        }
+
+        &::after {
+          margin-right: 10px;
+        }
+      }
+
+      .field {
+        position: relative;
+        margin-bottom: 35px;
+
+        &.error {
+          .input-group {
+            border-color: #dc3545;
+          }
+        }
+
+        label {
+          color: #adb5bd;
+          font-weight: bold;
+          margin-bottom: 10px;
+          cursor: pointer;
+          font-size: 14px;
+        }
+
+        .input-group {
+          border: 1px solid #adb5bd;
+          margin-bottom: 10px;
+          border-radius: 10px;
+          overflow: hidden;
+
+          input {
+            background-color: $mainColor1;
+            padding: 10px;
+            outline: none;
+            border: none;
+            color: #adb5bd;
+
+            &::placeholder {
+              color: #444445;
+            }
+          }
+
+          .pass-btn {
+            button {
+              color: #adb5bd;
+              padding: 10px 10px;
+              background-color: transparent;
+
+              img {
+                width: 20px;
+                height: 20px;
+              }
+            }
+          }
+        }
+
+        small {
+          display: block;
+          font-size: 12px;
+          position: absolute;
+          right: 0;
+          top: 100%;
+        }
+      }
+
+      p {
+        color: red;
+        font-size: 12px;
+      }
+
+      form > button {
+        background-color: $mainColor3;
+        padding: 10px;
+        border-radius: 10px;
+        font-weight: bold;
+
+        &:disabled {
+          cursor: not-allowed;
+        }
+
+        &:enabled {
+          &:hover {
+            background-color: $mainColor2;
+            color: $mainColor3;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*-------------------------------------------------------------
+                        cart page
+-------------------------------------------------------------*/
+.cart-view {
+  background-color: $mainColor2;
+  min-height: calc(100vh - 75px);
+  color: wheat;
+
+  .cart-status {
+    margin-bottom: 30px;
+
+    h4 {
+      font-weight: normal;
+      color: #adb5bd;
+      font-size: 13px;
+
+      &.active {
+        font-weight: bold;
+        color: #d6dade;
+      }
+    }
+
+    img {
+      width: 5px;
+    }
+  }
+
+  .cart-info {
+    border: 1px solid $textColor;
+    padding: 20px;
+    border-radius: 30px;
+
+    .heading {
+      h4 {
+        color: $textColor;
+        font-size: 17px;
+      }
+    }
+
+    .content {
+      .meal-img {
+        width: 150px;
+        height: 100px;
+      }
+
+      h3 {
+        margin: 0;
+        color: $textColor;
+        font-size: 18px;
+        cursor: pointer;
+      }
+
+      p {
+        margin: 0;
+        color: $textColor;
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .count {
+        justify-content: center;
+
+        span {
+          display: inline-block;
+          width: 40px;
+          text-align: center;
+          color: $textColor;
+          font-size: 17px;
+          font-weight: bold;
+        }
+
+        button {
+          color: $textColor;
+          width: 35px;
+          height: 35px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 17px;
+          font-weight: bold;
+          border-radius: 50%;
+
+          &.incr {
+            background-color: $mainColor3;
+          }
+
+          &.decr {
+            background-color: #242a30;
+          }
+        }
+      }
+
+      .remove-img {
+        width: 25px;
+        height: 25px;
+        cursor: pointer;
+      }
+    }
+
+    .field {
+      h5 {
+        color: $textColor;
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      textarea {
+        min-width: 100%;
+        max-width: 100%;
+        min-height: 150px;
+        max-height: 150px;
+        background-color: transparent;
+        border-radius: 25px;
+        padding: 15px;
+        font-size: 14px;
+        color: $textColor;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    .checkout-btns {
+      .check-out {
+        background-color: $mainColor3;
+        color: $mainColor1;
+        border: 1px solid $mainColor3;
+      }
+    }
+  }
+
+  .cart-form {
+    form {
+      border: 1px solid $textColor;
+      padding: 20px;
+      border-radius: 30px;
+
+      h2 {
+        font-size: 18px;
+        color: #d6dade;
+      }
+
+      .data {
+        label {
+          color: #adb5bd;
+          font-size: 14px;
+        }
+
+        input,
+        select {
+          background-color: #242a30;
+          border: none;
+          outline: none;
+          color: #d6dade;
+          font-size: 15px;
+          padding: 10px;
+          border-radius: 15px !important;
+
+          &::placeholder {
+            color: #adb5bd;
+          }
+        }
+
+        .input-group {
+          span {
+            background-color: transparent;
+            color: $mainColor3;
+            border: none;
+
+            &:nth-of-type(2) {
+              cursor: pointer;
+            }
+          }
+        }
+      }
+
+      .pay {
+        .radio {
+          position: relative;
+          border-radius: 15px;
+          overflow: hidden;
+
+          input {
+            width: 0;
+            height: 0;
+            position: absolute;
+
+            &:checked ~ .text {
+              border-color: $mainColor3;
+
+              .check {
+                .circle-div-border {
+                  border-color: $mainColor3;
+
+                  .circle-div {
+                    background-color: $mainColor3;
+                  }
+                }
+              }
+            }
+          }
+
+          label {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: pointer;
+
+            &:hover ~ .text {
+              border-color: $mainColor3;
+
+              .check {
+                .circle-div-border {
+                  border-color: $mainColor3;
+
+                  .circle-div {
+                    background-color: $mainColor3;
+                  }
+                }
+              }
+            }
+          }
+
+          .text {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #adb5bd;
+            border-radius: 15px;
+
+            .check {
+              .circle-div-border {
+                width: 25px;
+                height: 25px;
+                border: 2px solid #adb5bd;
+                border-radius: 50%;
+                padding: 3px;
+
+                .circle-div {
+                  width: 100%;
+                  height: 100%;
+                  border-radius: inherit;
+                }
+              }
+
+              h5 {
+                color: #d6dade;
+                font-size: 14px;
+              }
+            }
+
+            img {
+              width: 30px;
+            }
+          }
+        }
+      }
+
+      .checkout-btns {
+        .payment-btn {
+          background-color: $mainColor3;
+          color: $mainColor1;
+          border: 1px solid $mainColor3;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .prices-details {
+      background-color: $mainColor1;
+      padding: 1rem 0;
+      color: #d6dade;
+      border-radius: 25px;
+
+      h5 {
+        font-size: 17px;
+        padding-right: 1rem;
+      }
+
+      hr {
+        border-bottom: 2px #242a30;
+      }
+
+      .price {
+        font-size: 20px;
+        font-weight: bold;
+        color: $mainColor3;
+      }
+
+      .meals-order {
+        padding: 0 1rem;
+
+        .meal {
+          padding-bottom: 1rem;
+          margin-bottom: 1rem;
+          border-bottom: 1px dashed #242a30;
+
+          img {
+            width: 100px;
+            margin-bottom: 5px;
+          }
+
+          h6 {
+            font-size: 14px;
+          }
+        }
+      }
+
+      .delivery-price {
+        padding: 0 1rem;
+
+        h6 {
+          font-size: 14px;
+        }
+      }
+
+      .total-price {
+        padding: 0 1rem;
+      }
+    }
+  }
+}
+
+.cart-done-modal {
+  .modal-content {
+    text-align: center;
+    padding: 20px;
+    color: $textColor;
+
+    img {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 20px;
+    }
+  }
+}
+
+/*-------------------------------------------------------------
+                        Order page
+-------------------------------------------------------------*/
+.order-view {
+  background-color: $mainColor2;
+  min-height: calc(100vh - 75px);
+  color: wheat;
+
+  .order-status {
+    p {
+      background-color: #242a30;
+      margin: 0;
+      height: 45px;
+      border-radius: 25px;
+      color: #6c757d;
+      cursor: pointer;
+      font-size: 12px;
+      transition: 0.3s linear;
+
+      span {
+        min-width: 25px;
+        height: 25px;
+        display: inline-block;
+        background-color: #1b2025;
+        text-align: center;
+        line-height: 25px;
+        font-size: 12px;
+        border-radius: 8px;
+      }
+
+      &:hover,
+      &.active {
+        color: #131313;
+        background-color: $mainColor3;
+
+        span {
+          background-color: #131313;
+          color: $textColor;
+        }
+      }
+    }
+  }
+
+  .user-order {
+    background-color: $mainColor1;
+    border-radius: 25px;
+    padding: 20px;
+
+    p {
+      margin-bottom: 6px;
+      font-size: 14px;
+      color: #d6dade;
+
+      span {
+        font-weight: bold;
+      }
+    }
+
+    img {
+      width: 25px !important;
+      margin-left: 5px;
+    }
+
+    i {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      font-size: 10px;
+      color: #d6dade;
+    }
+
+    .order-btn {
+      margin-top: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+
+      button {
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-weight: bold;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .order-btn {
+        button {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
+/*-------------------------------------------------------------
+                        Points page
+-------------------------------------------------------------*/
+.points-view {
+  background-color: $mainColor2;
+  min-height: calc(100vh - 75px);
+
+  .point-status {
+    .input-group {
+      background-color: $mainColor1;
+      padding: 8px 10px;
+      border-radius: 20px;
+      overflow: hidden;
+
+      .form-control {
+        background-color: transparent;
+        border: none;
+        color: $textColor;
+        font-size: 14px;
+
+        &::placeholder {
+          color: #515050;
+        }
+      }
+
+      span {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+
+        img {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+
+    .btns {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+
+      button {
+        width: 50%;
+        border: 1px solid $mainColor3;
+        color: $mainColor3;
+        padding: 8px 0 !important;
+        font-size: 15px;
+        border-radius: 30px;
+        font-weight: bold;
+
+        &:hover,
+        &.active {
+          background-color: $mainColor3;
+          color: $mainColor1;
+        }
+      }
+    }
+  }
+
+  .point {
+    background-color: $mainColor1;
+    padding: 20px;
+    border-radius: 25px;
+
+    span {
+      font-weight: bold;
+      font-size: 16px;
+      color: $textColor;
+    }
+
+    button {
+      border-radius: 20px;
+    }
+  }
+}
+
+/*-------------------------------------------------------------
+                        About page
+-------------------------------------------------------------*/
+.about-view {
+  background-color: $mainColor2;
+  min-height: calc(100vh - 75px);
+  color: #ffffff !important;
+
+  .edit-btn {
+    border: 2px solid $textColor;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 17px;
+      height: 17px;
+    }
+  }
+
+  .about-info {
+    .about-status {
+      margin-bottom: 30px;
+
+      h4 {
+        font-weight: normal;
+        color: #adb5bd;
+        font-size: 13px;
+
+        &.active {
+          font-weight: bold;
+          color: #d6dade;
+        }
+      }
+
+      img {
+        width: 5px;
+      }
+    }
+    .text {
+      .heading {
+        h3 {
+          font-size: 28px;
+          color: $mainColor3;
+        }
+      }
+      p.desc {
+        font-size: 15px;
+        line-height: 1.5;
+        color: $textColor;
+      }
+      span {
+        color: #d6dade;
+      }
+      .home_btn {
+        background-color: $mainColor3;
+        color: white;
+        font-weight: bold;
+        border-radius: 25px;
+        font-size: 14px;
+        padding: 12px 25px;
+
+        &:hover {
+          background-color: $mainColor2;
+        }
+      }
+    }
+    .image {
+      border-radius: 60px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        aspect-ratio: 3/2;
+      }
+
+      div {
+        background-color: #00000080;
+        display: none !important;
+
+        label {
+          background-color: $mainColor3;
+          color: white;
+          padding: 15px;
+          border-radius: 25px;
+          cursor: pointer;
+        }
+
+        input {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 0;
+          height: 0;
+        }
+      }
+
+      &:hover {
+        div {
+          display: flex !important;
+        }
+      }
+    }
+  }
+
+  .about-location {
+    h3 {
+      font-size: 28px;
+      color: $mainColor3;
+    }
+    p {
+      font-size: 15px;
+      line-height: 1.5;
+      color: $textColor;
+    }
+  }
+
+  .about-footer {
+  }
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator{
+  // filter: contrast(0%);
+  background: none;
+}
+select{
+  background-color: $mainColor1;
+}

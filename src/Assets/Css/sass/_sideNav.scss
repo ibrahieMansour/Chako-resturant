@@ -1,0 +1,120 @@
+.side-bar {
+    padding-top: 20px;
+    background-color: $mainColor1;
+    position: static;
+    transform: translateX(0%);
+    height: 100%;
+    overflow: auto;
+
+    img {
+        width: 75px;
+        height: 50px;
+    }
+
+    p {
+        color: $textColor;
+        font-size: 15px;
+    }
+
+    h2 {
+        a {
+            display: block;
+            color: $textColor;
+            text-align: center;
+            font-size: 22px;
+            border-top: 2px solid #242A30;
+            border-bottom: 2px solid #242A30;
+            border-radius: 25px;
+            width: 100%;
+            transition: 0.3s;
+
+            &.active {
+                color: $mainColor3
+            }
+        }
+    }
+
+    .list--point,
+    .list--info {
+        color: $textColor;
+        list-style-type: disc;
+        padding: 0 20px;
+        font-size: 12px;
+    }
+
+    .nav--list {
+        a {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            border-radius: 30px;
+            color: $textColor;
+            transition: 0.5s linear;
+            cursor: pointer;
+
+            i {
+                display: inline-block;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+            }
+
+            &:hover,
+            &.active {
+                background-color: $mainColor3;
+                border-radius: 30px;
+                color: $mainColor1;
+
+                i {
+                    background-color: $mainColor1;
+                }
+            }
+
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: $mainColor2;
+        }
+    }
+}
+
+.side-bar-btn{
+    background-color: $mainColor3;
+    border-radius: 50% 0 0 50%;
+    z-index: 98;
+    &:hover{
+        background-color: $mainColor1;
+        color: $mainColor3;
+    }
+}
+
+@media (max-width: 991px) {
+    .side-bar {
+        height: 100%;
+        width: 300px;
+        position: fixed;
+        right: 0;
+        top: 0;
+        z-index: 99;
+        transition: 0.3s linear;
+
+        &.show {
+            transform: translateX(0%);
+        }
+
+        &.hide {
+            transform: translateX(100%);
+        }
+
+        .closebtn {
+            position: absolute;
+            top: 15px;
+            left: 25px;
+            border: none;
+            background-color: transparent;
+            font-size: 35px;
+            padding: 0 2px;
+            color: $textColor;
+        }
+    }
+}
